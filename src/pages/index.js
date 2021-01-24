@@ -13,7 +13,6 @@ import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
-// import Player from "../components/audioplayer"
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
@@ -42,7 +41,6 @@ const IndexPage = ({ data }) => {
         <Articles />
         <About content={data.about.edges} />
         <AudioPlayer content={data.audioplayer.edges} />
-        {/* <Player /> */}
         <Interests content={data.interests.edges} />
         <Projects content={data.projects.edges} />
         <Contact content={data.contact.edges} />
