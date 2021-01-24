@@ -8,13 +8,12 @@ import SEO from "../components/seo"
 import Hero from "../components/sections/hero"
 import Articles from "../components/sections/articles"
 import About from "../components/sections/about"
+import AudioPlayer from "../components/sections/audioplayer"
 import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
-
-import AudioPlayer from "react-h5-audio-player"
-import "react-h5-audio-player/lib/styles.css"
+// import Player from "../components/audioplayer"
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
@@ -42,12 +41,8 @@ const IndexPage = ({ data }) => {
         {/* Articles is populated via Medium RSS Feed fetch */}
         <Articles />
         <About content={data.about.edges} />
-        <AudioPlayer
-          autoPlay
-          src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast%20-%20Elevator.mp3"
-          onPlay={e => console.log("onPlay")}
-          // other props here
-        />
+        <AudioPlayer content={data.audioplayer.edges} />
+        {/* <Player /> */}
         <Interests content={data.interests.edges} />
         <Projects content={data.projects.edges} />
         <Contact content={data.contact.edges} />
@@ -96,6 +91,25 @@ export const pageQuery = graphql`
       }
     }
     about: allMdx(filter: { fileAbsolutePath: { regex: "/index/about/" } }) {
+      edges {
+        node {
+          body
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 400, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    audioplayer: allMdx(
+      filter: { fileAbsolutePath: { regex: "/index/audioplayer/" } }
+    ) {
       edges {
         node {
           body
