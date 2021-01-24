@@ -2,8 +2,7 @@ import React from "react"
 import AudioPlayer from "react-h5-audio-player"
 import "react-h5-audio-player/lib/styles.css"
 import styled from "styled-components"
-// import 'react-h5-audio-player/lib/styles.less' Use LESS
-// import 'react-h5-audio-player/src/styles.scss' Use SASS
+// import BobMarley from "../../content/music/jamming.m4a"
 
 const StyledSection = styled.section`
   width: 100%;
@@ -26,6 +25,7 @@ const Player = () => {
     <StyledSection>
       <AudioPlayer
         src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast%20-%20Elevator.mp3"
+        // src={BobMarley}
         onPlay={e => console.log("onPlay")}
         layout="horizontal-reverse"
         customAdditionalControls={[]}
