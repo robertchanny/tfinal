@@ -26,7 +26,6 @@ const Player = () => {
       <AudioPlayer
         src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast%20-%20Elevator.mp3"
         // src={BobMarley}
-        onPlay={e => console.log("onPlay")}
         layout="horizontal-reverse"
         customAdditionalControls={[]}
         showJumpControls={false}
