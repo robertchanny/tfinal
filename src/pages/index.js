@@ -13,6 +13,9 @@ import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
 
+import AudioPlayer from "react-h5-audio-player"
+import "react-h5-audio-player/lib/styles.css"
+
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
   const { seoTitle, useSeoTitleSuffix, useSplashScreen } = frontmatter
@@ -39,6 +42,12 @@ const IndexPage = ({ data }) => {
         {/* Articles is populated via Medium RSS Feed fetch */}
         <Articles />
         <About content={data.about.edges} />
+        <AudioPlayer
+          autoPlay
+          src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast%20-%20Elevator.mp3"
+          onPlay={e => console.log("onPlay")}
+          // other props here
+        />
         <Interests content={data.interests.edges} />
         <Projects content={data.projects.edges} />
         <Contact content={data.contact.edges} />

@@ -28,6 +28,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-h5-audio-player": "^3.5.0",
     "react-helmet": "^6.1.0",
     "react-visibility-sensor": "^5.1.1",
     "smooth-scroll": "^16.1.3",
