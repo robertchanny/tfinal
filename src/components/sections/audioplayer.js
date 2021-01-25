@@ -75,16 +75,17 @@ const Audioplayer = ({ content }) => {
   const tOnScreen = useOnScreen(tRef)
 
   // Required for animating the image
-  const iRef = useRef()
-  const iOnScreen = useOnScreen(iRef)
+  // const iRef = useRef()
+  // const iOnScreen = useOnScreen(iRef)
 
   // Only trigger animations if the intro is done or disabled
   useEffect(() => {
     if (isIntroDone) {
       if (tOnScreen) tControls.start({ opacity: 1, y: 0 })
-      if (iOnScreen) iControls.start({ opacity: 1, x: 0 })
+      // if (iOnScreen) iControls.start({ opacity: 1, x: 0 })
     }
-  }, [isIntroDone, tControls, iControls, tOnScreen, iOnScreen])
+    // }, [isIntroDone, tControls, iControls, tOnScreen, iOnScreen])
+  }, [isIntroDone, tControls, iControls, tOnScreen])
 
   return (
     <StyledSection id="audioplayer">
@@ -99,9 +100,7 @@ const Audioplayer = ({ content }) => {
           <div className="text-content">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
-          <div className="text-content">
-            <Player />
-          </div>
+          <Player />
         </motion.div>
       </StyledContentWrapper>
     </StyledSection>
