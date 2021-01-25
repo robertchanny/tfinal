@@ -8,6 +8,8 @@ const {
   colors,
 } = require(`./config`)
 
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     author: author,
@@ -67,13 +69,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Price"],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-eslint`,
       options: {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules|.cache|public)/,
         stages: [`develop`],
         options: {
-          emitWarning: true,
+          emitWarning: false,
           failOnError: false,
         },
       },

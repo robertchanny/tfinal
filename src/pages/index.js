@@ -11,6 +11,7 @@ import About from "../components/sections/about"
 import AudioPlayer from "../components/sections/audioplayer"
 import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
+// import Services from "../components/sections/services"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
 
@@ -38,11 +39,12 @@ const IndexPage = ({ data }) => {
         />
         <Hero content={data.hero.edges} />
         {/* Articles is populated via Medium RSS Feed fetch */}
-        <Articles />
+        {/* <Articles /> */}
         <About content={data.about.edges} />
         <AudioPlayer content={data.audioplayer.edges} />
         <Interests content={data.interests.edges} />
         <Projects content={data.projects.edges} />
+        {/* <Services content={data.projects.edges} /> */}
         <Contact content={data.contact.edges} />
       </Layout>
     </GlobalStateProvider>
@@ -176,6 +178,25 @@ export const pageQuery = graphql`
             buttonVisible
             buttonUrl
             buttonText
+          }
+        }
+      }
+    }
+    services: allMdx(
+      filter: { fileAbsolutePath: { regex: "/index/services/" } }
+    ) {
+      edges {
+        node {
+          body
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 400, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
