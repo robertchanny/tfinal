@@ -1,7 +1,7 @@
 import React from "react"
 import "react-h5-audio-player/lib/styles.css"
 import styled from "styled-components"
-import Products from "../components/products/products"
+import Products from "./Products/Products"
 
 const StyledSection = styled.section`
   width: 100%;
