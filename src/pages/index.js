@@ -11,7 +11,7 @@ import About from "../components/sections/about"
 import AudioPlayer from "../components/sections/audioplayer"
 import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
-// import Services from "../components/sections/services"
+import Services from "../components/sections/services"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
 
@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
         <AudioPlayer content={data.audioplayer.edges} />
         <Interests content={data.interests.edges} />
         <Projects content={data.projects.edges} />
-        {/* <Services content={data.projects.edges} /> */}
+        <Services content={data.projects.edges} />
         <Contact content={data.contact.edges} />
       </Layout>
     </GlobalStateProvider>

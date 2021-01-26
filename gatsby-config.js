@@ -8,7 +8,7 @@ const {
   colors,
 } = require(`./config`)
 
-require('dotenv').config();
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
